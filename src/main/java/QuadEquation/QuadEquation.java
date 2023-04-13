@@ -86,5 +86,3 @@ public class QuadEquation {
     } // main (String[]) method
 
 } // QuadEquation class
-
-// Нужно дописать условие, что a != 0 | чтобы адекватно обрабатывалось и что + и - в уравнении адекватно выглядели
