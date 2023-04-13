@@ -2,7 +2,7 @@ package QuadEquation;
 
 import java.util.Scanner;
 
-import static QuadEquation.ParametersQuadEquation.Discriminant;
+import static QuadEquation.ParametersQuadEquation.calculateDiscriminant;
 
 class ParametersQuadEquation {
 
@@ -10,19 +10,19 @@ class ParametersQuadEquation {
     double b;
     double c;
 
-    public static double Discriminant (double a, double b, double c) {
-        double D = (b * b) - (4 * a * c);
-        return D;
+    public static double calculateDiscriminant(double a, double b, double c) {
+        double discriminant = (b * b) - (4 * a * c);
+        return discriminant;
     } // Discriminant method
 
     public static double x1 (double a, double b, double c) {
-        double x1 = ((-b + Math.sqrt(Discriminant (a, b, c))) / (2 * a));
-        return x1;
+        double calculateX1 = ((-b + Math.sqrt(calculateDiscriminant(a, b, c))) / (2 * a));
+        return calculateX1;
     } // x1 method
 
     public static double x2 (double a, double b, double c) {
-        double x2 = ((-b - Math.sqrt(Discriminant(a, b, c))) / (2 * a));
-        return x2;
+        double calculateX2 = ((-b - Math.sqrt(calculateDiscriminant(a, b, c))) / (2 * a));
+        return calculateX2;
     } // x2 method
 
 } // QuadEquation class
@@ -55,16 +55,16 @@ public class QuadEquation {
                 System.out.print ("x = " + xln);
             }
             else if (a != 0) {
-                double Discr = Discriminant(a, b, c);
-                if (Discr > 0) {
+                double discr = calculateDiscriminant(a, b, c);
+                if (discr > 0) {
                     double X1 = ParametersQuadEquation.x1(a, b, c);
                     System.out.println("x1 = " + X1);
                     double X2 = ParametersQuadEquation.x2(a, b, c);
                     System.out.println("x2 = " + X2);
-                } else if (Discr == 0.0) {
+                } else if (discr == 0.0) {
                     double X1 = ParametersQuadEquation.x1(a, b, c);
                     System.out.println("Так как дискриминант равен нулю, есть только одно решение. x = " + X1);
-                } else if (Discr < 0)
+                } else if (discr < 0)
                     System.out.println("Нет решения, так как дискриминант отрицательный");
             }
 
