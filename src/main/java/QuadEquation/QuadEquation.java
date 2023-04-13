@@ -49,21 +49,24 @@ public class QuadEquation {
 
             System.out.println("Уравнение имеет вид: " + a + "x^2 + " + b + "x + " + c + " = 0");
 
-            for (double Discr = Discriminant(a, b, c); ; ) {
+            if (a==0) {
+                System.out.println("Так как параметр а равен нулю, уравнение является линейным.");
+                double xln = (-c)/b;
+                System.out.print ("x = " + xln);
+            }
+            else if (a != 0) {
+                double Discr = Discriminant(a, b, c);
                 if (Discr > 0) {
                     double X1 = ParametersQuadEquation.x1(a, b, c);
                     System.out.println("x1 = " + X1);
                     double X2 = ParametersQuadEquation.x2(a, b, c);
                     System.out.println("x2 = " + X2);
-                    break;
                 } else if (Discr == 0.0) {
                     double X1 = ParametersQuadEquation.x1(a, b, c);
                     System.out.println("Так как дискриминант равен нулю, есть только одно решение. x = " + X1);
-                    break;
                 } else if (Discr < 0)
                     System.out.println("Нет решения, так как дискриминант отрицательный");
-                break;
-            } // if
+            }
 
             System.out.println("*******************");
             System.out.println("Решить ещё одно уравнение? (да/нет)");
@@ -84,4 +87,4 @@ public class QuadEquation {
 
 } // QuadEquation class
 
-// Нужно дописать условие, что a != 0 и что можно повторять программу и что + и - в уравнении адекватно выглядели
+// Нужно дописать условие, что a != 0 | чтобы адекватно обрабатывалось и что + и - в уравнении адекватно выглядели
