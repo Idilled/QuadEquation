@@ -6,26 +6,26 @@ import static QuadEquation.ParametersQuadEquation.Discriminant;
 
 class ParametersQuadEquation {
 
-        double a;
-        double b;
-        double c;
+    double a;
+    double b;
+    double c;
 
-        public static double Discriminant (double a, double b, double c) {
+    public static double Discriminant (double a, double b, double c) {
         double D = (b * b) - (4 * a * c);
         return D;
     } // Discriminant method
 
-        public static double x1 (double a, double b, double c) {
+    public static double x1 (double a, double b, double c) {
         double x1 = ((-b + Math.sqrt(Discriminant (a, b, c))) / (2 * a));
         return x1;
     } // x1 method
 
-        public static double x2 (double a, double b, double c) {
+    public static double x2 (double a, double b, double c) {
         double x2 = ((-b - Math.sqrt(Discriminant(a, b, c))) / (2 * a));
         return x2;
     } // x2 method
 
-    } // QuadEquation class
+} // QuadEquation class
 
 public class QuadEquation {
 
@@ -34,7 +34,7 @@ public class QuadEquation {
         Scanner scB = new Scanner (System.in);
         Scanner scC = new Scanner (System.in);
         Scanner goOn = new Scanner (System.in);
-        boolean GoOn;
+        String GoOn;
 
         do {
 
@@ -64,12 +64,24 @@ public class QuadEquation {
                     System.out.println("Нет решения, так как дискриминант отрицательный");
                 break;
             } // if
-            System.out.println ("Решить ещё одно уравнение?");
-            GoOn = goOn.nextBoolean();
 
-        } while (GoOn = true);
-        } // main (String[]) method
+            System.out.println("*******************");
+            System.out.println("Решить ещё одно уравнение? (да/нет)");
+            do {
+                GoOn = goOn.nextLine();
+                if (GoOn.equals("да")) {
+                    System.out.println("*******************");
+                    break;
+                } else if (GoOn.equals("нет")) {
+                    System.out.println("Хорошего дня!");
+                    break;
+                } else System.out.println("Пожалуйста, ответьте да или нет");
 
-    } // QuadEquation class
+            } while (!GoOn.equals("да") | !GoOn.equals("нет"));
+
+        } while (GoOn.equals("да"));
+    } // main (String[]) method
+
+} // QuadEquation class
 
 // Нужно дописать условие, что a != 0 и что можно повторять программу и что + и - в уравнении адекватно выглядели
